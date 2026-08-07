@@ -1,4 +1,5 @@
 import os
+import requests
 import streamlit as st
 
 from static_analysis.ioc_extractor import IOCExtractor
@@ -31,6 +32,31 @@ if "report" not in st.session_state:
 if "wallet" not in st.session_state:
     st.session_state.wallet = None
 
+
+# =====================================================
+# LIVE CRYPTO PRICES
+# =====================================================
+
+def get_crypto_prices():
+    try:
+        response = requests.get(
+            "https://api.coingecko.com/api/v3/simple/price",
+            params={
+                "ids": "bitcoin,ethereum,solana",
+                "vs_currencies": "usd",
+                "include_24hr_change": "true"
+            },
+            timeout=5
+        )
+
+        if response.status_code == 200:
+            return response.json()
+
+    except Exception:
+        return None
+
+    return None
+
 # =====================================================
 # LOGIN PAGE
 # =====================================================
@@ -62,6 +88,45 @@ if not st.session_state.logged_in:
 
     with col2:
 
+        # =================================================
+        # LIVE CRYPTO MARKET RATES
+        # =================================================
+
+        crypto = get_crypto_prices()
+
+        st.error("🔴 LIVE CRYPTO MARKET RATES")
+
+        if crypto:
+            c1, c2, c3 = st.columns(3)
+
+            with c1:
+                st.metric(
+                    "₿ Bitcoin",
+                    f"${crypto['bitcoin']['usd']:,.2f}",
+                    f"{crypto['bitcoin'].get('usd_24h_change', 0):+.2f}%"
+                )
+
+            with c2:
+                st.metric(
+                    "Ξ Ethereum",
+                    f"${crypto['ethereum']['usd']:,.2f}",
+                    f"{crypto['ethereum'].get('usd_24h_change', 0):+.2f}%"
+                )
+
+            with c3:
+                st.metric(
+                    "◎ Solana",
+                    f"${crypto['solana']['usd']:,.2f}",
+                    f"{crypto['solana'].get('usd_24h_change', 0):+.2f}%"
+                )
+        else:
+            st.warning("Live crypto prices are temporarily unavailable.")
+
+        st.caption("● Live market data")
+        st.divider()
+
+        # Existing login interface
+
         st.markdown("""
         <div class="login-box">
 
@@ -71,9 +136,7 @@ if not st.session_state.logged_in:
 
         <br>
 
-        <p style="font-size:18px;">
-        <b>Open Ended Lab (OEL-1)</b>
-        </p>
+    
 
         <p style="font-size:18px;">
         <b>Developed By</b>
