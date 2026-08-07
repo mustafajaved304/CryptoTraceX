@@ -1,6 +1,5 @@
 # CryptoTraceX — Cryptocurrency Malware Tracking System
 
-## OEL-1 Project
 
 ### Developed By
 
