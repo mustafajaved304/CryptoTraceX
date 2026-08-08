@@ -1,343 +1,193 @@
-# CryptoTraceX — Cryptocurrency Malware Tracking System
+Developed By: Mustafa Mehmood Javed
 
+## 📌 Overview
 
-### Developed By
+CryptoTraceX is a cybersecurity application developed to demonstrate the detection, analysis, and investigation of cryptocurrency-related malware in a safe and controlled environment.
 
-**Mustafa Mehmood Javed**
+Cryptocurrency malware can target digital wallets, browser information, clipboard data, credentials, private keys, and other sensitive information associated with cryptocurrency transactions. Such threats can result in financial loss and unauthorized access to digital assets.
 
-### Project Title
+CryptoTraceX provides an educational platform that demonstrates the workflow used during a cryptocurrency malware investigation. The system combines static analysis, simulated dynamic analysis, Indicators of Compromise (IOC) extraction, cryptocurrency wallet investigation, threat intelligence visualization, database storage, and automated PDF reporting.
 
-**CryptoTraceX — Cryptocurrency Malware Tracking System**
-
----
-
-## 1. Introduction
-
-CryptoTraceX is a cybersecurity-based application developed for the analysis and investigation of cryptocurrency-related malware. Cryptocurrency malware can target digital wallets, browser information, clipboard data, private keys, and other sensitive information used in cryptocurrency transactions.
-
-The purpose of CryptoTraceX is to demonstrate how cybersecurity professionals can analyze suspicious malware samples, extract Indicators of Compromise (IOCs), simulate malicious activities, investigate cryptocurrency wallets, and generate threat intelligence reports.
-
-The project uses a safe and educational simulation approach instead of executing real malicious software.
+The project uses simulated malware behavior for educational purposes and does **not execute real malicious software**.
 
 ---
 
-## 2. Project Objectives
+## 🎯 Project Objectives
 
 The main objectives of CryptoTraceX are:
 
-- To perform static malware analysis
-- To extract Indicators of Compromise (IOCs)
-- To identify suspicious URLs, IP addresses, emails, and wallet addresses
-- To simulate dynamic malware behavior
-- To perform cryptocurrency wallet tracking
-- To visualize threat intelligence information
-- To store investigation results in a database
-- To generate automated PDF threat reports
-- To provide an interactive cybersecurity dashboard
+- Perform static malware analysis.
+- Extract Indicators of Compromise (IOCs).
+- Identify suspicious URLs, IP addresses, email addresses, and cryptocurrency wallet addresses.
+- Calculate and display file hashes such as SHA256.
+- Simulate suspicious cryptocurrency malware behavior.
+- Investigate suspicious cryptocurrency wallets.
+- Present threat intelligence through an interactive dashboard.
+- Store investigation results using SQLite.
+- Maintain a history of previous investigations.
+- Generate automated PDF threat reports.
+- Display live cryptocurrency market information.
+- Provide a centralized environment for educational malware investigation.
 
 ---
 
-## 3. System Overview
+## 🚀 Key Features
 
-CryptoTraceX is a Python-based cybersecurity application developed using Streamlit. The application provides an interactive dashboard through which users can perform different malware investigation and cryptocurrency intelligence tasks.
+### 🔑 1. Authentication System
+CryptoTraceX starts with a login interface that provides controlled access to the application.
+- Username authentication
+- Password authentication
+- Project identification
+- Developer information
+- Live cryptocurrency market information
 
-The system contains multiple modules including authentication, static analysis, dynamic analysis, blockchain intelligence, threat intelligence visualization, analysis history, and PDF report generation.
+### 🔍 2. Static Malware Analysis
+Examines suspicious files without execution to gather baseline intel:
+- File name & size
+- SHA256 cryptographic hash
+- Extracted URLs, IP addresses, and email addresses
+- Extracted cryptocurrency wallet addresses
+- Suspicious indicator highlights & risk metrics
 
-The project is designed as an educational tool for understanding the workflow of cryptocurrency malware investigation.
+### 🧩 3. Indicators of Compromise (IOC) Extraction
+Extracts and categorizes actionable artifacts:
+- Network IOCs (IPs, URLs)
+- Communication channels (Emails)
+- Financial targets (Crypto Wallet Addresses)
+- File Fingerprints (SHA256 Hashes)
+
+### 🦠 4. Dynamic Malware Analysis
+A **safe sandbox simulation** of malicious runtime behavior:
+- Clipboard hijacking monitoring
+- Browser credential harvesting attempts
+- Registry modification for persistence
+- DNS query telemetry
+- Command-and-Control (C2) communication patterns
+
+### ₿ 5. Blockchain Intelligence
+Investigates targeted cryptocurrency wallets and blockchain-linked metrics, demonstrating how on-chain intelligence supports cybercrime investigations.
+
+### 📊 6. Threat Intelligence Dashboard
+Consolidates raw data into interactive visualizations:
+- Consolidated analysis metrics
+- Aggregated IOC categorizations
+- Risk scoring and wallet intelligence summary
+- Overall investigation telemetry
+
+### 💰 7. Live Cryptocurrency Market Rates
+Provides real-time financial context directly on the login panel via the **CoinGecko API**:
+
+| Cryptocurrency | Symbol |
+|---|---|
+| Bitcoin | BTC |
+| Ethereum | ETH |
+| Solana | SOL |
+
+Retrieves real-time USD price data and 24-hour price variations with resilient error handling.
+
+### 🗄️ 8. Database & Analysis History
+Powered by **SQLite**, allowing users to persist analysis outputs, store full session histories, and review past case files without re-running scans.
+
+### 📄 9. Automated PDF Threat Reports
+Uses **ReportLab** to generate exportable, structured PDF executive summaries including file hashes, risk profiles, IOC lists, wallet findings, and forensic timelines.
 
 ---
 
-## 4. Technologies Used
+## 🛠️ Technologies Used
 
 | Technology | Purpose |
-|------------|---------|
-| Python | Main Programming Language |
-| Streamlit | Web Dashboard |
-| SQLite | Database Storage |
-| Pandas | Data Processing |
-| Plotly | Data Visualization |
-| ReportLab | PDF Report Generation |
-| Requests | Live Cryptocurrency Data |
-| CoinGecko API | Cryptocurrency Market Data |
-| Git | Version Control |
-| GitHub | Source Code Repository |
-| VS Code | Development Environment |
+|---|---|
+| **Python** | Core application logic |
+| **Streamlit** | Web interface & interactive frontend |
+| **SQLite** | Local relational database storage |
+| **Pandas** | Data structuring & tabular processing |
+| **Plotly** | Interactive visualization widgets |
+| **ReportLab** | Document generation & PDF layout engine |
+| **Requests** | HTTP client for external API calls |
+| **CoinGecko API** | Live market data telemetry |
+| **Git & GitHub** | Source code management & repository host |
+| **VS Code** | Primary Integrated Development Environment |
 
 ---
 
-## 5. System Requirements
-
-### Hardware
-
-- Intel Core i3 processor or above
-- Minimum 4 GB RAM
-- Minimum 1 GB free storage
-- Internet connection for live cryptocurrency prices
-
-### Software
-
-- Windows 10/11
-- Python 3.13
-- Visual Studio Code
-- Git
-- Streamlit
-- Required Python libraries
-
----
-
-## 6. Project Methodology
-
-The system follows a structured malware investigation workflow:
-
-1. User opens the CryptoTraceX application.
-2. User logs into the system.
-3. The dashboard provides access to investigation modules.
-4. A malware sample can be submitted for static analysis.
-5. Static analysis extracts important Indicators of Compromise.
-6. Dynamic analysis simulates suspicious malware activities.
-7. Cryptocurrency wallet information is investigated.
-8. Threat intelligence information is visualized.
-9. Analysis results are stored in the database.
-10. A PDF threat report can be generated.
-11. Previous investigations can be reviewed through the history section.
-
----
-
-## 7. Login Module
-
-The application starts with a login interface that provides access to the CryptoTraceX system.
-
-The login page contains the project title, developer information, username and password fields, and login functionality.
-
-The login interface also displays a live cryptocurrency market section showing current prices of major cryptocurrencies including:
-
-- Bitcoin (BTC)
-- Ethereum (ETH)
-- Solana (SOL)
-
-The cryptocurrency information is retrieved through the CoinGecko API.
-
----
-
-## 8. Dashboard Module
-
-After successful authentication, the user is provided with the main CryptoTraceX dashboard.
-
-The dashboard provides access to the major modules of the system, including:
-
-- Static Analysis
-- Dynamic Analysis
-- Blockchain Intelligence
-- Threat Intelligence Dashboard
-- Analysis History
-- PDF Report Generation
-
-The dashboard acts as the central navigation point for the complete malware investigation workflow.
-
----
-
-## 9. Static Malware Analysis
-
-The Static Analysis module examines a malware sample without executing it.
-
-The system analyzes the submitted sample and extracts useful information such as:
-
-- File name
-- File size
-- SHA256 hash
-- URLs
-- IP addresses
-- Email addresses
-- Cryptocurrency wallet addresses
-- Suspicious indicators
-- Risk information
-
-Static analysis helps investigators identify potentially malicious characteristics while keeping the sample inactive.
-
----
-
-## 10. Indicators of Compromise (IOC) Extraction
-
-Indicators of Compromise are important pieces of information that can be used to identify suspicious or malicious activity.
-
-CryptoTraceX extracts different IOC types including:
-
-- IP addresses
-- URLs
-- Email addresses
-- Cryptocurrency wallet addresses
-- File hashes
-
-The extracted information can be used by security analysts during further investigation and threat intelligence analysis.
-
----
-
-## 11. Dynamic Analysis
-
-The Dynamic Analysis module provides a safe simulation of suspicious malware behavior.
-
-Instead of executing real malware, the system demonstrates possible malicious activities such as:
-
-- Clipboard monitoring
-- Browser credential access
-- Registry persistence
-- DNS communication
-- Command-and-control communication
-
-The simulated approach allows students to understand malware behavior without creating unnecessary security risks.
-
----
-
-## 12. Blockchain Intelligence
-
-The Blockchain Intelligence module focuses on cryptocurrency wallet investigation.
-
-The system allows suspicious cryptocurrency wallet addresses to be investigated and provides information related to wallet activity and risk assessment.
-
-This module demonstrates how blockchain information can be used as part of a cryptocurrency-related cybercrime investigation.
-
----
-
-## 13. Threat Intelligence Dashboard
-
-The Threat Intelligence Dashboard provides a graphical representation of collected security information.
-
-Charts and visual elements help investigators understand:
-
-- Threat indicators
-- Malware analysis results
-- Wallet intelligence
-- Risk information
-- Investigation statistics
-
-The dashboard makes complex security information easier to understand and interpret.
-
----
-
-## 14. Live Cryptocurrency Market Rates
-
-CryptoTraceX also provides a live cryptocurrency market section.
-
-The login interface displays current market information for:
-
-- Bitcoin
-- Ethereum
-- Solana
-
-The system retrieves the current USD price and 24-hour price change through the CoinGecko API.
-
-This feature provides additional cryptocurrency context within the investigation environment.
-
----
-
-## 15. Database and Analysis History
-
-The application uses SQLite for storing investigation information.
-
-Completed analysis results can be stored and reviewed later through the History module.
-
-Database storage allows the system to maintain previous investigation records and provides a simple way to review historical analysis results.
-
----
-
-## 16. PDF Threat Report Generation
-
-CryptoTraceX includes an automated PDF report generation feature.
-
-After completing an investigation, the system can generate a structured threat report containing important analysis information.
-
-The generated report can include:
-
-- Malware information
-- Hash information
-- Extracted IOCs
-- Risk assessment
-- Wallet information
-- Investigation results
-
-This feature demonstrates how security analysts can document their findings in a professional format.
-
----
-
-## 17. Testing
-
-The major modules of CryptoTraceX were tested during development.
-
-| Module | Status |
-|--------|--------|
-| Login System | Passed |
-| Dashboard | Passed |
-| Static Analysis | Passed |
-| IOC Extraction | Passed |
-| Dynamic Analysis | Passed |
-| Blockchain Intelligence | Passed |
-| Threat Intelligence Dashboard | Passed |
-| Live Crypto Rates | Passed |
-| Database Storage | Passed |
-| Analysis History | Passed |
-| PDF Report Generation | Passed |
-
----
-
-## 18. Results
-
-The completed CryptoTraceX system successfully demonstrates the basic workflow of cryptocurrency malware investigation.
-
-The system can analyze simulated malware samples, extract Indicators of Compromise, simulate suspicious activities, investigate cryptocurrency wallets, visualize threat intelligence information, store investigation results, and generate PDF reports.
-
-The addition of live cryptocurrency market information also provides current Bitcoin, Ethereum, and Solana market data within the application.
-
----
-
-## 19. Limitations
-
-The project has some limitations:
-
-- Dynamic malware analysis is simulated rather than real malware execution.
-- Blockchain investigation is designed for educational purposes.
-- Some threat intelligence information is simulated.
-- Live cryptocurrency prices depend on external API availability.
-- The system is intended for educational and demonstration purposes rather than production-level malware investigation.
-
----
-
-## 20. Future Enhancements
-
-Possible future improvements include:
-
-- Integration with real malware sandbox environments
-- Integration with additional threat intelligence APIs
-- Real-time blockchain transaction tracking
-- Multiple cryptocurrency network support
-- Advanced malware behavior analysis
-- Machine learning-based malware classification
-- Automated IOC reputation checking
-- Real-time security alerts
-- Advanced user authentication
-- Expanded threat intelligence visualization
-
----
-
-## 21. Conclusion
-
-CryptoTraceX is an educational Cryptocurrency Malware Tracking System developed to demonstrate important cybersecurity concepts related to malware analysis, Indicators of Compromise, cryptocurrency investigations, blockchain intelligence, and threat reporting.
-
-The project combines static analysis, simulated dynamic analysis, wallet investigation, database storage, visualization, live cryptocurrency information, and automated PDF reporting into a single Streamlit-based application.
-
-The project provides practical experience in developing a cybersecurity investigation platform while demonstrating how cryptocurrency-related threats can be analyzed in a controlled and safe environment.
-
----
-
-## 22. Repository
-
-**GitHub Repository:**
-
-`https://github.com/mustafajaved304/CryptoTraceX`
-
-
-## 23. Developer
-
-**Mustafa Mehmood Javed**
-
-**Project:** CryptoTraceX — Cryptocurrency Malware Tracking System
-
+## 🏗️ System Architecture
+
+```text
+                    ┌─────────────────────┐
+                    │        Login        │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │      Dashboard      │
+                    └──────────┬──────────┘
+                               │
+              ┌────────────────┼────────────────┐
+              │                │                │
+              ▼                ▼                ▼
+      ┌──────────────┐ ┌──────────────┐ ┌──────────────┐
+      │   Static     │ │   Dynamic    │ │  Blockchain  │
+      │  Analysis    │ │  Analysis    │ │ Intelligence │
+      └──────┬───────┘ └──────┬───────┘ └──────┬───────┘
+             │                │                │
+             └────────────────┼────────────────┘
+                              │
+                              ▼
+                   ┌──────────────────────┐
+                   │ Threat Intelligence  │
+                   │      Dashboard       │
+                   └──────────┬───────────┘
+                              │
+                    ┌─────────┴─────────┐
+                    ▼                   ▼
+             ┌──────────────┐    ┌──────────────┐
+             │   Database   │    │ PDF Reports  │
+             │  & History   │    │ Generation   │
+             └──────────────┘    └──────────────┘
+
+
+📂 Project StructurePlaintextCryptoTraceX/
+│
+├── app.py
+├── static_analysis/
+│   └── Static analysis modules
+├── dynamic_analysis/
+│   └── Dynamic analysis modules
+├── blockchain/
+│   └── Blockchain intelligence modules
+├── dashboard/
+│   └── Dashboard components
+├── database/
+│   └── cryptotracex.db
+├── reports/
+│   └── PDF report generation modules
+├── uploads/
+│   └── Uploaded analysis files
+├── requirements.txt
+└── README.md
+
+⚙️ InstallationStep 1 — Clone the RepositoryBashgit clone [https://github.com/mustafajaved304/CryptoTraceX.git](https://github.com/mustafajaved304/CryptoTraceX.git)
+Step 2 — Open the Project DirectoryBashcd CryptoTraceX
+Step 3 — Create a Virtual EnvironmentBashpython -m venv venv
+Step 4 — Activate the Virtual EnvironmentWindows:Bashvenv\Scripts\activate
+Linux/macOS:Bashsource venv/bin/activate
+Step 5 — Install Required DependenciesBashpip install -r requirements.txt
+(If requests is missing from your requirements file, run pip install requests)▶️ Running the ApplicationAfter activating your virtual environment, launch the Streamlit server:Bashstreamlit run app.py
+Open the provided local URL (typically http://localhost:8501) in your browser to access CryptoTraceX.🔐 Application WorkflowPlaintextLogin ──► Dashboard ──► Select Module (Static / Dynamic) ──► IOC Extraction
+                              │
+                              ▼
+                     Blockchain Intelligence
+                              │
+                              ▼
+                Threat Intelligence Visualization
+                              │
+                              ▼
+                     Save to DB & History ──► Export PDF Report
+🔬 Static Analysis WorkflowPlaintextFile Upload ──► File Identification ──► SHA256 Hash Generation ──► IOC Extraction ──► Classification ──► Risk Score
+🦠 Dynamic Analysis WorkflowPlaintextStart Simulation ──► Simulated Behavior ──► Event Capture ──► Threat Classification ──► Results Summary
+₿ Cryptocurrency Investigation WorkflowPlaintextTarget Wallet Address ──► On-Chain Query ──► Historical Telemetry ──► Risk Exposure ──► Threat Intel Summary
+📊 Threat Intelligence WorkflowPlaintextStatic Intel  ──┐
+Dynamic Intel ──┼──► Threat Intel Dashboard ──► [IOCs | Risk Metrics | Wallet Data | Statistics]
+Chain Intel   ──┘
+💰 Cryptocurrency APIIntegrated via CoinGecko REST API supporting real-time lookups for Bitcoin (BTC), Ethereum (ETH), and Solana (SOL). Includes automated fallbacks in the event of rate limits or connection dropouts.🗃️ DatabaseBuilt on SQLite (cryptotracex.db) to enable:Persistent analysis session logsDirect access to historical scan filesRapid re-evaluation without repeating computational tasks📄 Report GenerationUses ReportLab to convert raw JSON/SQLite findings into clean, multi-page security documentation:PlaintextRaw Analysis Data ──► Data Formatter ──► ReportLab Engine ──► PDF Threat Report
+🧪 Testing SummaryComponentStatusLogin System✅ PassedDashboard✅ PassedStatic Analysis✅ PassedIOC Extraction✅ PassedDynamic Analysis✅ PassedBlockchain Intelligence✅ PassedThreat Intelligence Dashboard✅ PassedLive Cryptocurrency Rates✅ PassedDatabase Storage✅ PassedAnalysis History✅ PassedPDF Report Generation✅ Passed📈 ResultsCryptoTraceX provides a fully functional, self-contained educational tool that successfully demonstrates end-to-end malware triage, IOC extraction, blockchain correlation, and executive reporting within a clean Streamlit interface.⚠️ LimitationsDynamic behavior is entirely simulated for execution safety; no hypervisor/kernel sandbox drivers are included.On-chain wallet analytics are scoped for demonstration purposes.Market data is subject to CoinGecko public API availability and rate limits.Designed purely as an educational tool rather than an enterprise-grade CTI solution.🔮 Future EnhancementsReal-time blockchain transaction stream trackingSupport for additional UTXO and EVM chainsML-driven PE header malware classification modelsLive VirusTotal / AlienVault OTX API integrationInteractive graph generation for wallet cluster analysis🔒 Security & SafetyCryptoTraceX is designed strictly for educational and defensive cybersecurity analysis. All dynamic analysis runs in a simulated state; no live malware binary execution takes place.📚 Educational FocusThis project demonstrates practical concepts in:Malware Static & Dynamic TriageIndicators of Compromise (IOC) ManagementThreat Intelligence CorrelationBlockchain Cybercrime TrackingDefensive Security Reporting👨‍💻 DeveloperMustafa Mehmood JavedProject: CryptoTraceX — Cryptocurrency Malware Tracking SystemProject Type: OEL-1Stack: Python / Streamlit / SQLite / Plotly / ReportLab🔗 GitHub Repository: CryptoTraceX Repository📜 LicenseThis project is created for educational and academic research purposes.⭐ AcknowledgementCryptoTraceX was developed as an academic cybersecurity project to demonstrate practical concepts of cryptocurrency malware tracking, threat intelligence, and security reporting.© 2026 Mustafa Mehmood Javed — CryptoTraceX
